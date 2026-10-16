@@ -3,19 +3,26 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Professional portfolio of Gidion Kiongo: sustainable tourism, hospitality management, tourism research, SEO content, AI-assisted creative work and digital innovation.">
+<meta name="description" content="Professional portfolio of Gidion Kiongo, Travel Consultant: travel reservations and itineraries, sustainable tourism, hospitality management, tourism research, SEO content, AI-assisted creative work and digital innovation.">
 <title>Gidion Kiongo | Professional Portfolio</title>
 <style>
-:root { color-scheme: light dark; --forest: #174d3a; --gold: #c79a3b; --ink: light-dark(#202b26,#e7eee9); --muted: light-dark(#5c6a63,#b0beb5); --paper: light-dark(#ffffff,#121a16); --soft: light-dark(#f3f6f1,#1a2720); --line: light-dark(#d7e1d8,#34463b); }
+:root { color-scheme: light dark; --forest: light-dark(#174d3a,#8fd3b0); --on-forest: light-dark(#ffffff,#0f1a14); --gold: #c79a3b; --ink: light-dark(#202b26,#e7eee9); --muted: light-dark(#5c6a63,#b0beb5); --paper: light-dark(#ffffff,#121a16); --soft: light-dark(#f3f6f1,#1a2720); --line: light-dark(#d7e1d8,#34463b); }
+:root[data-theme="light"] { color-scheme: light; }
+:root[data-theme="dark"] { color-scheme: dark; }
+.theme-toggle { width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--line); background: var(--soft); color: var(--ink); cursor: pointer; display: inline-grid; place-items: center; font-size: 1.05rem; padding: 0; }
+.theme-toggle:hover { border-color: var(--gold); }
 * { box-sizing: border-box; }
 body { margin: 0; background: var(--paper); color: var(--ink); font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.65; }
 #app { min-height: 100vh; background: var(--paper); border-radius: 0; }
 .wrap { width: min(1100px, calc(100% - 40px)); margin: 0 auto; }
 header { border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 5; background: var(--paper); }
 .nav { min-height: 70px; display: flex; align-items: center; justify-content: space-between; gap: 18px; }
-.brand { font-weight: 800; letter-spacing: .05em; color: var(--forest); }
-nav { display: flex; gap: 18px; flex-wrap: wrap; }
+.brand { font-weight: 800; letter-spacing: .05em; color: var(--forest); display: flex; align-items: center; gap: 12px; }
+.brand img { width: 46px; height: 46px; border-radius: 50%; object-fit: cover; object-position: center 15%; border: 2px solid var(--gold); flex-shrink: 0; }
+nav { display: flex; gap: 18px; flex-wrap: wrap; align-items: center; }
 nav a, a { color: var(--forest); text-decoration: none; }
+nav a.btn, a.btn { color: var(--on-forest); text-decoration: none; }
+a.btn.secondary { color: var(--forest); }
 nav a { font-size: .9rem; font-weight: 650; }
 nav a:hover, a:hover { text-decoration: underline; }
 .hero { padding: 82px 0 70px; background: linear-gradient(135deg, var(--soft), var(--paper)); border-bottom: 1px solid var(--line); }
@@ -25,7 +32,7 @@ h1 { color: var(--forest); font-size: clamp(2.7rem, 7vw, 5.3rem); line-height: .
 .tags { display: flex; gap: 8px; flex-wrap: wrap; margin: 25px 0; }
 .tag { border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; font-size: .82rem; background: var(--paper); }
 .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
-.btn { border: 1px solid var(--forest); border-radius: 8px; padding: 11px 16px; display: inline-flex; font-weight: 750; cursor: pointer; background: var(--forest); color: #fff; font: inherit; font-size: .92rem; }
+.btn { border: 1px solid var(--forest); border-radius: 8px; padding: 11px 16px; display: inline-flex; font-weight: 750; cursor: pointer; background: var(--forest); color: var(--on-forest); font: inherit; font-size: .92rem; }
 .btn.secondary { color: var(--forest); background: transparent; }
 section { padding: 60px 0; border-bottom: 1px solid var(--line); }
 .section-head { max-width: 720px; margin-bottom: 26px; }
@@ -43,50 +50,148 @@ p { margin: 0 0 14px; }
 .contact { display: grid; grid-template-columns: 1.1fr .9fr; gap: 24px; }
 .contact-list { display: grid; gap: 12px; }
 .contact-item { padding: 14px; background: var(--soft); border: 1px solid var(--line); border-radius: 9px; overflow-wrap: anywhere; }
+.timeline { display: grid; gap: 16px; }
+.role { display: grid; grid-template-columns: 170px minmax(0,1fr); gap: 20px; }
+.role .when { color: var(--gold); font-weight: 800; font-size: .85rem; letter-spacing: .04em; }
+.role ul, .education ul { margin: 0 0 6px; padding-left: 20px; }
+.role li, .education li { margin-bottom: 4px; }
+blockquote { margin: 26px 0 0; padding: 22px 24px; border-left: 3px solid var(--gold); background: var(--soft); border-radius: 0 12px 12px 0; }
+blockquote p { font-size: 1.05rem; font-style: italic; }
+blockquote cite { font-style: normal; font-size: .88rem; color: var(--muted); }
+.btn.small { padding: 8px 14px; font-size: .85rem; }
+.services { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 16px; }
+.service .num { color: var(--gold); font-weight: 800; font-size: .8rem; letter-spacing: .1em; }
+.cta-band { margin-top: 26px; padding: 24px; border-radius: 14px; background: var(--forest); color: var(--on-forest); display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+.cta-band h3 { margin: 0 0 4px; }
+.cta-band p { margin: 0; opacity: .85; }
+.cta-band .btn { background: var(--gold); border-color: var(--gold); color: #1b1b1b; }
+.impact { display: grid; gap: 12px; }
+.impact-item { display: grid; grid-template-columns: 28px minmax(0,1fr); gap: 12px; padding: 16px 18px; background: var(--soft); border: 1px solid var(--line); border-radius: 12px; }
+.impact-item .tick { width: 28px; height: 28px; border-radius: 50%; background: var(--forest); color: var(--on-forest); display: grid; place-items: center; font-weight: 800; font-size: .85rem; }
+.impact-item p { margin: 0; }
+.impact-item .evidence { font-size: .85rem; color: var(--muted); margin-top: 4px; }
+.certs { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; }
+.cert { padding: 18px; background: var(--soft); border: 1px solid var(--line); border-radius: 12px; }
+.cert .meta { display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; color: var(--muted); font-size: .88rem; margin-top: 4px; }
+.cert .year { color: var(--gold); font-weight: 800; }
 footer { padding: 26px 0; color: var(--muted); font-size: .85rem; }
-@media (max-width: 760px) { .nav { align-items: flex-start; padding: 16px 0; flex-direction: column; } nav { gap: 10px 14px; } .hero { padding: 58px 0 50px; } .grid, .skills, .contact { grid-template-columns: 1fr; } section { padding: 44px 0; } }
-@media print { header, .actions { display: none; } .hero, section { padding: 25px 0; } body { color: #202b26; } .card, .skill { break-inside: avoid; } }
+@media (max-width: 760px) { .nav { align-items: flex-start; padding: 16px 0; flex-direction: column; } nav { gap: 10px 14px; } .hero { padding: 58px 0 50px; } .grid, .skills, .contact, .services, .certs, .role { grid-template-columns: 1fr; } .role { gap: 4px; } section { padding: 44px 0; } }
+@media print { .theme-toggle, header, .actions, .cta-band { display: none; } .hero, section { padding: 25px 0; } body { color: #202b26; } .card, .skill { break-inside: avoid; } }
 </style>
+<script>try { var t = localStorage.getItem("theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}</script>
 </head>
 <body>
 <div id="app">
-<header><div class="wrap nav"><div class="brand">GIDION KIONGO</div><nav aria-label="Main navigation"><a href="#about">About</a><a href="#work">Projects</a><a href="#skills">Skills</a><a href="#education">Education</a><a href="#contact">Contact</a></nav></div></header>
+<header><div class="wrap nav"><div class="brand"><img src="images/gidion-kiongo.jpg" alt="Gidion Kiongo" width="46" height="46">GIDION KIONGO</div><nav aria-label="Main navigation"><a href="#about">About</a><a href="#services">Services</a><a href="#experience">Experience</a><a href="#work">Projects</a><a href="#certificates">Certificates</a><a href="#testimonials">Testimonials</a><a href="#contact">Contact</a><a class="btn small" href="#contact">Hire Me</a><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark mode" title="Switch to dark mode">🌙</button></nav></div></header>
 <main>
 <div class="hero"><div class="wrap">
-<div class="eyebrow">Professional Portfolio · Kenya</div>
+<div class="eyebrow">Travel Consultant · Sustainable Tourism &amp; Hospitality Professional · Nairobi, Kenya</div>
 <h1>Tourism, hospitality<br>and digital innovation.</h1>
-<p class="lead">I bring together sustainable tourism knowledge, research, creative storytelling and digital content skills to help communicate ideas, promote destinations and support business growth.</p>
+<p class="lead">Travel Consultant at HK Adventure and certified Independent Travel Manager, with hands-on experience in travel reservations, itinerary planning, visa processing and hotel operations. I bring together sustainable tourism knowledge, research, creative storytelling and digital content skills to help communicate ideas, promote destinations and support business growth.</p>
 <div class="tags"><span class="tag">Sustainable Tourism</span><span class="tag">Hospitality</span><span class="tag">SEO Content</span><span class="tag">AI-assisted Creativity</span><span class="tag">Digital Marketing</span></div>
-<div class="actions"><a class="btn" href="#work">Explore my work</a><button class="btn secondary" onclick="window.print()">Print / Save as PDF</button></div>
+<div class="actions"><a class="btn" href="#contact">Hire Me</a><a class="btn secondary" href="files/Gidion-Kiongo-CV.pdf" download="Gidion-Kiongo-CV.pdf">Download My CV</a><a class="btn secondary" href="#services">View services</a><button class="btn secondary" onclick="window.print()">Print / Save as PDF</button></div>
 </div></div>
 <section id="about"><div class="wrap"><div class="section-head"><div class="eyebrow">01 / Profile</div><h2>About me</h2></div>
-<p>I am a Sustainable Tourism and Hospitality Management graduate from Dedan Kimathi University of Technology, with interests in tourism development, hospitality service, sustainability, research and digital innovation.</p>
+<p>I am a Travel Consultant and Sustainable Tourism &amp; Hospitality Management graduate from Dedan Kimathi University of Technology. I currently handle clients' complete travel needs at HK Adventure, from flights, accommodation and car hire to full trip arrangements, and I have hands-on experience in passport and visa processing and hotel operations. I am committed to exceptional customer experiences and sustainable tourism practices.</p>
 <p>I enjoy using clear communication, creative storytelling and digital tools to help businesses present their services, connect with audiences and promote destinations. My developing skill set includes SEO-oriented writing, website content support, tourism research, graphic design and AI-assisted creative concepts.</p>
 <div class="card"><h3>Career objective</h3><p class="muted">To contribute to tourism, hospitality and digital projects by combining my academic foundation with research, content creation and technology skills—while continuing to grow in travel management, digital marketing and sustainable destination development.</p></div>
 </div></section>
-<section id="work"><div class="wrap"><div class="section-head"><div class="eyebrow">02 / Selected work</div><h2>Projects and practical work</h2><p class="muted">A selection of work areas that demonstrate my interests and developing capabilities.</p></div>
+<section id="services"><div class="wrap"><div class="section-head"><div class="eyebrow">02 / Services</div><h2>Services I offer</h2><p class="muted">Practical support for tourism, hospitality and small businesses that want to present themselves clearly online.</p></div>
+<div class="services">
+<article class="card service"><div class="num">01</div><h3>Website content writing</h3><p class="muted">Clear, customer-friendly page copy, service descriptions and product descriptions that explain what you offer and why it matters.</p></article>
+<article class="card service"><div class="num">02</div><h3>SEO content support</h3><p class="muted">Content shaped around relevant search terms, clear headings and useful information so customers can find your business online.</p></article>
+<article class="card service"><div class="num">03</div><h3>Social media content</h3><p class="muted">Captions, post ideas and simple visuals made with Canva and Photoshop to keep your pages active and on-brand.</p></article>
+<article class="card service"><div class="num">04</div><h3>Tourism destination promotion</h3><p class="muted">Storytelling that highlights Kenya's attractions, wildlife and lesser-known destinations, with a focus on responsible travel.</p></article>
+<article class="card service"><div class="num">05</div><h3>Basic website creation</h3><p class="muted">Simple, responsive websites built from scratch for small businesses, from layout to written content.</p></article>
+<article class="card service"><div class="num">06</div><h3>Travel booking &amp; itineraries</h3><p class="muted">Flight, accommodation and car hire bookings, detailed itineraries, and passport and visa application support, drawing on my work as a travel consultant.</p></article>
+</div>
+<div class="cta-band"><div><h3>Have a project in mind?</h3><p>Tell me what you need and I will get back to you.</p></div><a class="btn" href="mailto:gidionkiongo35@gmail.com?subject=Work%20enquiry%20from%20your%20portfolio">Work With Me</a></div>
+</div></section>
+<section id="experience"><div class="wrap"><div class="section-head"><div class="eyebrow">03 / Experience</div><h2>Work experience</h2><p class="muted">From hotel and tour operations attachments to full-time travel consulting.</p></div>
+<div class="timeline">
+<article class="card role"><div class="when">Jul 2026 – Present</div><div><div class="kicker">HK Adventure</div><h3>Travel Consultant</h3><ul><li>Handle all client travel needs from first enquiry through to trip completion.</li><li>Make flight, accommodation and car hire reservations to suit client schedules and budgets.</li><li>Plan and arrange trips and write detailed client itineraries.</li><li>Provide ongoing customer service, including booking changes, follow-ups and enquiries.</li></ul></div></article>
+<article class="card role"><div class="when">Jan – Jun 2026</div><div><div class="kicker">ASAMWAX Enterprise</div><h3>Travel Services Intern</h3><ul><li>Delivered travel-related cyber services to clients.</li><li>Wrote travel itineraries, made bookings and arranged trips.</li><li>Assisted clients with passport and visa applications.</li><li>Handled other travel-related client services and enquiries.</li></ul></div></article>
+<article class="card role"><div class="when">2025 · 3 months</div><div><div class="kicker">Travelicious Tours &amp; Travel · Westlands, Nairobi</div><h3>Attaché – Tour Operations (Tour Agent)</h3><ul><li>Assisted clients with travel inquiries and prepared travel itineraries.</li><li>Booked accommodation and transport, ensuring customer satisfaction throughout the booking process.</li><li>Supported tour packaging and client communication in a competitive urban travel market.</li><li>Commended by the supervisor for professionalism, dependability and attention to detail.</li></ul></div></article>
+<article class="card role"><div class="when">2024</div><div><div class="kicker">Westwood Hotel · Nyeri</div><h3>Attaché – Hotel Operations</h3><ul><li>Rotated across front office, housekeeping, food &amp; beverage and kitchen departments.</li><li>Applied food production, bar service and guest relations skills in a live hotel setting.</li><li>Trained under experienced industry professionals.</li></ul></div></article>
+</div>
+</div></section>
+<section id="work"><div class="wrap"><div class="section-head"><div class="eyebrow">04 / Selected work</div><h2>Projects and practical work</h2><p class="muted">A selection of work areas that demonstrate my interests and developing capabilities.</p></div>
 <div class="grid">
 <article class="card"><div class="kicker">Website content · SEO</div><h3>Markies Timbers</h3><p>Support the business's online presentation through product descriptions and website content for timber, doors and furniture. Focus on clear product information, relevant search terms and customer-friendly presentation.</p><p><strong>Skills:</strong> Product copywriting, SEO-oriented writing, website content support.</p><a href="https://markiestimbers.com" target="_blank" rel="noreferrer">Visit website ↗</a></article>
-<article class="card"><div class="kicker">Tourism content · Destination promotion</div><h3>HK Adventure</h3><p>Develop tourism content ideas highlighting Kenya's attractions, wildlife and lesser-known destinations, with an emphasis on engaging storytelling and responsible travel promotion.</p><p><strong>Skills:</strong> Destination storytelling, content planning, branding concepts.</p><a href="https://hkadventure.naipeak.com/" target="_blank" rel="noreferrer">Visit website ↗</a></article>
+<article class="card"><div class="kicker">Travel consulting · Destination promotion</div><h3>HK Adventure</h3><p>Work as a Travel Consultant, handling client bookings and itineraries, and develop tourism content ideas highlighting Kenya's attractions, wildlife and lesser-known destinations, with an emphasis on engaging storytelling and responsible travel promotion.</p><p><strong>Skills:</strong> Destination storytelling, content planning, branding concepts.</p><a href="https://hkadventure.naipeak.com/" target="_blank" rel="noreferrer">Visit website ↗</a></article>
+<article class="card"><div class="kicker">Real estate marketing · Executive marketer</div><h3>HomeSeek Kenya</h3><p>Serve as an executive marketer for HomeSeek, a house-rental platform listing bedsitters, apartments and rooms across Nairobi. Promote listings, connect tenants with suitable homes and help grow the platform's reach.</p><p><strong>Skills:</strong> Digital marketing, client engagement, property promotion.</p><a href="https://homeseek.naipeak.com/" target="_blank" rel="noreferrer">Visit website ↗</a></article>
+<article class="card"><div class="kicker">Web development · Built from scratch</div><h3>Giant Interior</h3><p>Designed and developed the Giant Interior website from scratch, presenting the business's interior design services through a clean, modern and responsive layout.</p><p><strong>Skills:</strong> Web development, UI design, front-end coding.</p><a href="https://github.com/gidis-k/code-to-image-genius" target="_blank" rel="noreferrer">View code on GitHub ↗</a></article>
 <article class="card"><div class="kicker">Academic research</div><h3>Political instability and tourism in Nyeri Town</h3><p>Academic research examining how insecurity-related concerns may affect perceptions of safety and tourism-sector performance. The topic highlights crisis preparedness, stakeholder collaboration, governance and destination resilience.</p><p><strong>Skills:</strong> Research writing, tourism analysis, report preparation.</p></article>
 <article class="card"><div class="kicker">Creative practice</div><h3>Digital and AI-assisted content concepts</h3><p>Explore Canva, Adobe Photoshop and AI-assisted tools to develop visual concepts and promotional content for tourism and business communication.</p><p><strong>Skills:</strong> Graphic design, visual communication, creative ideation.</p></article>
 </div></div></section>
-<section id="skills"><div class="wrap"><div class="section-head"><div class="eyebrow">03 / Capabilities</div><h2>Core skills</h2></div>
+<section id="impact"><div class="wrap"><div class="section-head"><div class="eyebrow">05 / Results</div><h2>Results and impact</h2><p class="muted">What I have delivered so far, and where it can be checked.</p></div>
+<div class="impact">
+<div class="impact-item"><div class="tick">✓</div><div><p>Employed as a Travel Consultant at HK Adventure soon after graduating, handling clients' flights, accommodation, car hire and full trip arrangements.</p><p class="evidence">Evidence: current role since July 2026; reference available from the HK Adventure manager.</p></div></div>
+<div class="impact-item"><div class="tick">✓</div><div><p>Supported clients with passport and visa applications, bookings and itineraries during a six-month travel services internship.</p><p class="evidence">Evidence: internship at ASAMWAX Enterprise, January – June 2026.</p></div></div>
+<div class="impact-item"><div class="tick">✓</div><div><p>Handled client travel inquiries, prepared itineraries and booked accommodation and transport during a three-month tour operations attachment.</p><p class="evidence">Evidence: recommendation letter from Travelicious Tours &amp; Travel, April 2025.</p></div></div>
+<div class="impact-item"><div class="tick">✓</div><div><p>Completed a full departmental rotation (front office, housekeeping, food &amp; beverage and kitchen) in a working hotel.</p><p class="evidence">Evidence: industrial attachment at Westwood Hotel, Nyeri, 2024.</p></div></div>
+<div class="impact-item"><div class="tick">✓</div><div><p>Designed and built the Giant Interior website from scratch.</p><p class="evidence">Evidence: source code on GitHub.</p></div></div>
+<div class="impact-item"><div class="tick">✓</div><div><p>Wrote product descriptions and website content for timber, doors and furniture on the Markies Timbers website.</p><p class="evidence">Evidence: markiestimbers.com.</p></div></div>
+<div class="impact-item"><div class="tick">✓</div><div><p>Completed an academic research study on political instability and tourism in Nyeri Town.</p><p class="evidence">Evidence: undergraduate research project, Dedan Kimathi University of Technology.</p></div></div>
+<div class="impact-item"><div class="tick">✓</div><div><p>Developed a natural kitchen soap as a sustainability innovation project.</p><p class="evidence">Evidence: fourth-year innovation project, Dedan Kimathi University of Technology.</p></div></div>
+<!-- Add measurable results only when you can back them up, e.g. "Grew HomeSeek page followers from X to Y (Jan-Mar 2026)". -->
+</div></div></section>
+<section id="skills"><div class="wrap"><div class="section-head"><div class="eyebrow">06 / Capabilities</div><h2>Core skills</h2></div>
 <div class="skills">
-<div class="skill"><strong>Tourism & travel</strong><span class="muted">Destination promotion, tourism operations fundamentals, travel management concepts.</span></div>
-<div class="skill"><strong>Hospitality</strong><span class="muted">Guest-focused service, teamwork, communication and service quality.</span></div>
+<div class="skill"><strong>Travel &amp; reservations</strong><span class="muted">Flight, accommodation and car hire bookings, itinerary writing, trip arrangements, passport and visa applications, travel client services.</span></div>
+<div class="skill"><strong>Tourism &amp; events</strong><span class="muted">MICE, tour planning and coordination, and sustainable tourism practices.</span></div>
+<div class="skill"><strong>Hospitality operations</strong><span class="muted">Food production, food &amp; beverage service, bar operations, housekeeping, front office and guest relations.</span></div>
 <div class="skill"><strong>Research & sustainability</strong><span class="muted">Research writing, tourism analysis and responsible destination development.</span></div>
 <div class="skill"><strong>Digital marketing</strong><span class="muted">SEO-oriented writing, website content support and social media content.</span></div>
 <div class="skill"><strong>Creative tools</strong><span class="muted">Canva, Adobe Photoshop, graphic design and visual storytelling.</span></div>
+<div class="skill"><strong>Soft skills</strong><span class="muted">Communication, customer service, teamwork, problem-solving and adaptability.</span></div>
+<div class="skill"><strong>Languages</strong><span class="muted">English (fluent), Swahili (fluent), French (basic).</span></div>
 <div class="skill"><strong>AI & productivity</strong><span class="muted">AI-assisted ideation, content drafting, digital research and structured reporting.</span></div>
 </div></div></section>
-<section id="education"><div class="wrap"><div class="section-head"><div class="eyebrow">04 / Education</div><h2>Academic background</h2></div><div class="education"><h3>Bachelor of Science in Sustainable Tourism and Hospitality Management</h3><p class="muted">Dedan Kimathi University of Technology (DeKUT)<br>Institute of Tourism and Hospitality Management</p><p>Academic foundation in tourism, hospitality, sustainability, research and destination development.</p></div>
+<section id="education"><div class="wrap"><div class="section-head"><div class="eyebrow">07 / Education</div><h2>Academic background</h2></div><div class="education"><h3>Bachelor of Science in Sustainable Tourism and Hospitality Management</h3><p class="muted">Dedan Kimathi University of Technology (DeKUT) · 2022 – 2026 (graduated June 2026)<br>Institute of Tourism and Hospitality Management</p><ul><li>Innovation project: invented a natural kitchen soap, applying sustainability to product development.</li><li>Took part in outside catering events and hospitality simulations throughout the programme.</li></ul><h3 style="margin-top:18px">Kenya Certificate of Secondary Education (KCSE)</h3><p class="muted">Lelu Secondary School · 2017 – 2021</p></div>
 <div style="margin-top:26px"><h3>Professional interests</h3><p class="muted">Sustainable tourism · Hospitality operations · Travel management · Destination marketing · Tourism research · AI-powered storytelling · Digital marketing · Website content and SEO</p></div></div></section>
-<section><div class="wrap"><div class="section-head"><div class="eyebrow">05 / Direction</div><h2>Value and goals</h2></div><p>I bring together formal training in tourism and hospitality with a practical interest in digital communication and innovation. I am adaptable, curious and committed to learning. My goal is to build deeper capability in travel technology, reservations, SEO, content production, data analysis and website development, and to help organizations communicate their value and create responsible visitor experiences.</p><div class="tags"><span class="tag">Tourism & travel roles</span><span class="tag">Hospitality roles</span><span class="tag">Destination marketing</span><span class="tag">SEO & content</span><span class="tag">Research support</span></div></div></section>
-<section id="contact"><div class="wrap contact"><div><div class="eyebrow">06 / Get in touch</div><h2>Let's connect.</h2><p class="muted">Open to opportunities in tourism, hospitality, content creation, digital marketing, research and innovation.</p></div>
-<div class="contact-list"><div class="contact-item"><strong>Email</strong><br><a href="mailto:gidionkiongo35@gmail.com">gidionkiongo35@gmail.com</a></div><div class="contact-item"><strong>Phone</strong><br><a href="tel:+254741546213">0741546213</a></div><div class="contact-item"><strong>LinkedIn</strong><br><a href="https://www.linkedin.com/in/kiongo-kiarie" target="_blank" rel="noreferrer">linkedin.com/in/kiongo-kiarie ↗</a></div><div class="contact-item"><strong>Portfolio</strong><br><span class="muted">You are viewing my professional portfolio. Please use the contact details above to connect with me.</span></div></div></div></section>
+<section id="certificates"><div class="wrap"><div class="section-head"><div class="eyebrow">08 / Credentials</div><h2>Certificates and achievements</h2></div>
+<div class="certs">
+<div class="cert"><h3>BSc. Sustainable Tourism &amp; Hospitality Management</h3><div class="meta"><span>Dedan Kimathi University of Technology</span><span class="year">2026</span></div></div>
+<div class="cert"><h3>Independent Travel Manager Certification</h3><div class="meta"><span>DreamPort · Credential ID 1996605317429166080</span><span class="year">2025</span></div></div>
+<div class="cert"><h3>Travel Services Internship</h3><div class="meta"><span>ASAMWAX Enterprise</span><span class="year">2026</span></div></div>
+<div class="cert"><h3>Industrial Attachment – Tour Operations</h3><div class="meta"><span>Travelicious Tours &amp; Travel, Nairobi</span><span class="year">2025</span></div></div>
+<div class="cert"><h3>Industrial Attachment – Hotel Operations</h3><div class="meta"><span>Westwood Hotel, Nyeri</span><span class="year">2024</span></div></div>
+<div class="cert"><h3>Sustainability Innovation Project – Natural Kitchen Soap</h3><div class="meta"><span>Dedan Kimathi University of Technology</span><span class="year">Final year</span></div></div>
+<div class="cert"><h3>Member, Sustainable Travel &amp; Tourism Africa</h3><div class="meta"><span>Professional membership</span><span class="year">Current</span></div></div>
+<div class="cert"><h3>Kenya Certificate of Secondary Education (KCSE)</h3><div class="meta"><span>Lelu Secondary School</span><span class="year">2021</span></div></div>
+<div class="cert"><h3>Written Recommendation</h3><div class="meta"><span>Travelicious Tours &amp; Travel</span><span class="year">2025</span></div></div>
+<!-- Add new training, workshops and courses here: title, issuing organization, year. -->
+</div></div></section>
+<section id="testimonials"><div class="wrap"><div class="section-head"><div class="eyebrow">09 / Testimonials</div><h2>What people say</h2></div>
+<blockquote><p>“He demonstrated professionalism, enthusiasm, and a genuine interest in the tourism industry… He also proved to be dependable and eager to learn, often going above and beyond what was expected. It was evident that he took the role seriously and treated every task with commitment and attention to detail.”</p><cite>— Ondere Francis, Supervisor, Travelicious Tours and Travel</cite></blockquote>
+<!-- Add more testimonials (with permission) by copying the blockquote above. -->
+</div></section>
+<section><div class="wrap"><div class="section-head"><div class="eyebrow">10 / Direction</div><h2>Value and goals</h2></div><p>I bring together formal training in tourism and hospitality with a practical interest in digital communication and innovation. I am adaptable, curious and committed to learning. My goal is to build deeper capability in travel technology, reservations, SEO, content production, data analysis and website development, and to help organizations communicate their value and create responsible visitor experiences.</p><div class="tags"><span class="tag">Tourism & travel roles</span><span class="tag">Hospitality roles</span><span class="tag">Destination marketing</span><span class="tag">SEO & content</span><span class="tag">Research support</span></div></div></section>
+<section id="contact"><div class="wrap contact"><div><div class="eyebrow">11 / Get in touch</div><h2>Let's work together.</h2><p class="muted">Open to job opportunities and freelance projects in tourism, hospitality, content creation, digital marketing, research and website creation.</p><div class="actions"><a class="btn" href="mailto:gidionkiongo35@gmail.com?subject=Work%20enquiry%20from%20your%20portfolio">Contact Me</a><a class="btn secondary" href="https://wa.me/254741546213" target="_blank" rel="noreferrer">Chat on WhatsApp</a></div></div>
+<div class="contact-list"><div class="contact-item"><strong>Email</strong><br><a href="mailto:gidionkiongo35@gmail.com">gidionkiongo35@gmail.com</a></div><div class="contact-item"><strong>Phone</strong><br><a href="tel:+254741546213">0741546213</a></div><div class="contact-item"><strong>LinkedIn</strong><br><a href="https://www.linkedin.com/in/kiongo-kiarie" target="_blank" rel="noreferrer">linkedin.com/in/kiongo-kiarie ↗</a></div><div class="contact-item"><strong>Curriculum vitae</strong><br><a href="files/Gidion-Kiongo-CV.pdf" download="Gidion-Kiongo-CV.pdf">Download My CV (PDF) ↓</a></div></div></div></section>
 </main>
 <footer><div class="wrap">© <span id="year">2026</span> Gidion Kiongo · Professional portfolio. Connecting tourism, hospitality and digital innovation.</div></footer>
 </div>
+<script>
+(function () {
+  var root = document.documentElement, btn = document.getElementById("theme-toggle");
+  var media = window.matchMedia("(prefers-color-scheme: dark)");
+  function isDark() { return root.dataset.theme ? root.dataset.theme === "dark" : media.matches; }
+  function render() {
+    var dark = isDark(), label = dark ? "Switch to light mode" : "Switch to dark mode";
+    btn.textContent = dark ? "☀️" : "🌙";
+    btn.setAttribute("aria-label", label); btn.title = label;
+  }
+  btn.addEventListener("click", function () {
+    var next = isDark() ? "light" : "dark";
+    root.dataset.theme = next;
+    try { localStorage.setItem("theme", next); } catch (e) {}
+    render();
+  });
+  media.addEventListener("change", render);
+  render();
+})();
+</script>
 </body>
 </html>
